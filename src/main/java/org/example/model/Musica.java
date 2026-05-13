@@ -26,6 +26,7 @@ public class Musica extends Midia implements Reproduzivel {
 
     @Override
     public void darPlay() {
+        System.out.println("Tocando musica: " + getTitulo() + " - " + artista);
 
     }
 }
