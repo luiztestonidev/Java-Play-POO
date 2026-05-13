@@ -1,6 +1,8 @@
 package org.example.model;
 
-public class Musica extends Midia {
+import org.example.interfaces.Reproduzivel;
+
+public class Musica extends Midia implements Reproduzivel {
 
     private String artista;
 
@@ -20,5 +22,10 @@ public class Musica extends Midia {
     @Override
     public double calcularCusto() {
         return 2.00;
+    }
+
+    @Override
+    public void darPlay() {
+
     }
 }
