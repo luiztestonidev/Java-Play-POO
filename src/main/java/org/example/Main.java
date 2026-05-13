@@ -1,17 +1,31 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import org.example.model.Filme;
+import org.example.model.Musica;
+import org.example.interfaces.Reproduzivel;
+import org.example.util.ConversorTempo;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+public class Main {
+
+    public static void main(String[] args) {
+
+    Filme filme = new Filme("A Procura da Felicidade", 117, "4K");
+    Musica musica = new Musica("Wicked Game", 4, "Chris Isaak");
+
+    System.out.println("\n---- FILME ----");
+    filme.exibirDetalhes();
+    System.out.println("Duracao do filme: " + ConversorTempo.formatarMinutos(filme.getDuracaoEmMinutos()));
+    processarPlayer(filme);
+
+    System.out.println("\n---- MUSICA ----");
+    musica.exibirDetalhes();
+    System.out.println("Duracao da musica: " + ConversorTempo.formatarMinutos(musica.getDuracaoEmMinutos()));
+    processarPlayer(musica);
+
     }
+
+    public static void processarPlayer(Reproduzivel item) {
+        item.darPlay();
+    }
+
 }

@@ -30,9 +30,11 @@ public class Filme extends Midia implements Reproduzivel, Baixavel {
 
     @Override
     public void darPlay() {
+        System.out.println("Reproduzindo filme: " + getTitulo());
     }
 
     @Override
     public void realizarDownload() {
+        System.out.println("Baixando filme: " + getTitulo());
     }
 }
