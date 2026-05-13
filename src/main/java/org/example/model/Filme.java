@@ -1,6 +1,9 @@
 package org.example.model;
 
-public class Filme extends Midia {
+import org.example.interfaces.Baixavel;
+import org.example.interfaces.Reproduzivel;
+
+public class Filme extends Midia implements Reproduzivel, Baixavel {
 
     private String qualidade;
 
@@ -19,10 +22,17 @@ public class Filme extends Midia {
 
     @Override
     public double calcularCusto() {
-        if ("Full HD".equals(this.qualidade)) {
-            return 10;
-        } else {
+        if ("4K".equals(this.qualidade)) {
             return 15;
         }
+        return 10;
+    }
+
+    @Override
+    public void darPlay() {
+    }
+
+    @Override
+    public void realizarDownload() {
     }
 }
