@@ -1,1 +1,1 @@
-rootProject.name = "JavaPlay"
+rootProject.name = "VitaCare"
