@@ -5,10 +5,12 @@ import java.time.LocalDate;
 public class Dependente extends Beneficiario implements Cobertura {
 
     private Titular titular;
+    TipoDependente tipoDependente;
 
-    public Dependente(String nome, LocalDate dataNascimento, String cpf, Titular titular) {
+    public Dependente(String nome, LocalDate dataNascimento, String cpf, Titular titular,TipoDependente tipoDependente) {
         super(nome, dataNascimento, cpf);
         this.titular = titular;
+        this.tipoDependente = tipoDependente;
     }
 
     public Titular getTitular() {
