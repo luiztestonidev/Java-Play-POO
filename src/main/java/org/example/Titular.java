@@ -20,7 +20,7 @@ public class Titular extends Beneficiario implements Cobertura {
         if (dependentes.size() >= LIMITE_DEPENDENTES) {
             return false;
         }
-        if (dependente.tipoDependente == TipoDependente.FILHO && dependente.getIdade() > IDADE_MAXIMA_DEPENDENTE) {
+        if (dependente.getIdade() >  IDADE_MAXIMA_DEPENDENTE) {
             return false;
         }
 
@@ -38,7 +38,7 @@ public class Titular extends Beneficiario implements Cobertura {
     }
 
     @Override
-    public boolean possuiCobertura(TipoCobertura cobertura) {
+    public boolean temCoberturaPara(TipoCobertura cobertura) {
         return true;
     }
 

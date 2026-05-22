@@ -1,7 +1,6 @@
 package org.example;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class EventoCobertura {
 
@@ -17,9 +16,7 @@ public class EventoCobertura {
 
     public void exibirEvento() {
 
-        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        System.out.println("Data: " + formatador.format(data));
+        System.out.println("Data: " + data);
         System.out.println("Tipo: " + tipo);
         System.out.println("Solicitante: " + solicitante.getNome());
     }

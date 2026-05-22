@@ -1,8 +1,6 @@
 package org.example;
 
 import java.time.LocalDate;
-import java.time.chrono.ChronoPeriod;
-import java.time.temporal.ChronoUnit;
 
 public class VitaCare {
 
@@ -10,11 +8,11 @@ public class VitaCare {
 
         Titular titular = new Titular("Luiz", LocalDate.of(2002, 1, 16), "11273442654");
 
-        Dependente dependente1 = new Dependente("Luizinho", LocalDate.of(2008, 1, 16), "22384553754", titular, TipoDependente.FILHO);
-        Dependente dependente2 = new Dependente("Luizinha", LocalDate.of(2010, 5, 20), "99887766554", titular, TipoDependente.FILHO);
-        Dependente dependente3 = new Dependente("Pablo", LocalDate.of(2005, 5, 17), "12345675371", titular, TipoDependente.FILHO);
-        Dependente dependente4 = new Dependente("Paula", LocalDate.of(1950, 8, 20), "12314975371", titular, TipoDependente.CONJUGE);
-        Dependente dependente5 = new Dependente("Marmanjo", LocalDate.of(2000, 1, 1), "12345678911", titular, TipoDependente.FILHO);
+        Dependente dependente1 = new Dependente("Luizinho", LocalDate.of(2008, 1, 16), "22384553754", titular);
+        Dependente dependente2 = new Dependente("Luizinha", LocalDate.of(2010, 5, 20), "99887766554", titular);
+        Dependente dependente3 = new Dependente("Pablo", LocalDate.of(2005, 5, 17), "12345675371", titular);
+        Dependente dependente4 = new Dependente("Paula", LocalDate.of(2008, 8, 20), "12314975371", titular);
+        Dependente dependente5 = new Dependente("Marmanjo", LocalDate.of(2000, 1, 1), "12345678911", titular);
 
         Aposentado aposentado = new Aposentado("Ze", LocalDate.of(1955, 3, 10), "55443322119");
 
@@ -39,9 +37,9 @@ public class VitaCare {
 
         System.out.println("\n-COBERTURAS-");
 
-        System.out.println("Dependente possui internacao? " + dependente1.possuiCobertura(TipoCobertura.INTERNACAO));
-        System.out.println("Titular possui internacao? " + titular.possuiCobertura(TipoCobertura.INTERNACAO));
-        System.out.println("Aposentado possui consulta? " + aposentado.possuiCobertura(TipoCobertura.CONSULTA));
+        System.out.println("Dependente possui internacao? " + dependente1.temCoberturaPara(TipoCobertura.INTERNACAO));
+        System.out.println("Titular possui internacao? " + titular.temCoberturaPara(TipoCobertura.INTERNACAO));
+        System.out.println("Aposentado possui consulta? " + aposentado.temCoberturaPara(TipoCobertura.CONSULTA));
 
         System.out.println("\n-RESUMO CONTRATO-");
 
@@ -49,7 +47,7 @@ public class VitaCare {
 
         System.out.println("\n-EVENTO COBERTURA-");
 
-        EventoCobertura evento = new EventoCobertura(LocalDate.now().plusDays(5), TipoCobertura.CONSULTA, dependente1);
+        EventoCobertura evento = new EventoCobertura(LocalDate.now(), TipoCobertura.CONSULTA, dependente1);
 
         evento.exibirEvento();
     }
